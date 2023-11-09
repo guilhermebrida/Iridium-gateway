@@ -4,7 +4,7 @@
 sudo apt update
 
 # Instale o Java Development Kit (JDK)
-sudo apt install default-jdk
+sudo apt install default-jdk kotlin gradle -y
 
 # Baixe e instale o Kotlin Compiler (Kotlinc)
 curl -s https://get.sdkman.io | bash
