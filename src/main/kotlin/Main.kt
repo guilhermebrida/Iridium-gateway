@@ -34,7 +34,7 @@ fun receiveMessage() {
     }.start()
 }
 fun insertIridiumMessage(message : String) {
-    val jdbcUrl = "jdbc:postgresql://18.231.44.167:5432/postgres"
+    val jdbcUrl = "jdbc:postgresql://18.231.125.54:5432/postgres"
     val username = "postgres"
     val password = "postgres"
 
