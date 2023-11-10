@@ -4,7 +4,7 @@
 sudo apt update
 
 # Instale o Java Development Kit (JDK)
-sudo apt install default-jdk kotlin gradle -y
+sudo apt install default-jdk openjdk-17-jdk openjdk-17-jre kotlin gradle apt-transport-https ca-certificates curl software-properties-common -y
 
 # Baixe e instale o Kotlin Compiler (Kotlinc)
 curl -s https://get.sdkman.io | bash
@@ -23,3 +23,22 @@ source ~/.bashrc
 java -version
 kotlin -version
 gradle -v
+
+# Adicionar chave GPG do Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Adicionar repositório do Docker
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Atualizar cache de pacotes novamente
+sudo apt-get update
+
+# Instalar Docker
+sudo apt-get install -y docker-ce
+
+# Instalar Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Reiniciar o serviço do Docker
+sudo service docker restart
